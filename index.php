@@ -1,5 +1,7 @@
 <?php
 include "calc.php";
+$_POST = $num1;
+$_POST = $num2;
 ?>  
 <!doctype html>
 <html lang="pt-br">
@@ -12,21 +14,24 @@ include "calc.php";
   <body>
     <h1>CALCULADORA</h1>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <div class="mb-3">
-  <label for="formGroupExampleInput" class="form-label">Primeiro valor <?php $num1 = $_POST['num1']; echo $num1; ?> </label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Valor 1">
-</div>
-<div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Segundo valor <?php $num1 = $_POST['num2']; echo $num2; ?></label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Valor 2">
-</div>
-    <select class="form-select" size="3" aria-label="Size 3 select example">
-  <option selected>Open this select menu</option>
-  <option>Soma <?php function soma($_POST['num1'], $_POST['num2']); ?> </option>
-  <option>Subtração <?php function subtracao($_POST['num1'], $_POST['num2']); ?> </option>
-  <option>Divisão <?php function divisao($_POST['num1'], $_POST['num2']); ?> </option>
-  <option>Muitplicação <?php function multiplicacao($_POST['num1'], $_POST['num2']); ?> </option>
-</select>
+    <form method="post" action="calc.php">
+  <div class="mb-3">
+    <label for="exampleInput" class="form-label">Número 1<?php $_POST; ?></label>
+    <input class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInput" class="form-label">Número 2<?php $_POST; ?></label>
+    <input class="form-control">
+  </div>
+  <select method="post" action="calc.php" class="form-select" size="4" aria-label="Size 4 select example">
+    <option selected>+ <?php $op = 1; ?> </option>
+    <option>- <?php $op = 2; ?> </option>
+    <option>/ <?php $op = 3; ?> </option>
+    <option>* <?php $op = 4; ?> </option>
+  </select>
+  <br>
+  <button type="submit" class="btn btn-primary">confirme</button>
+</form>
 </body>
 
 </html>
