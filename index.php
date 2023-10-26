@@ -1,7 +1,5 @@
 <?php
 include "calc.php";
-$_POST = $num1;
-$_POST = $num2;
 ?>  
 <!doctype html>
 <html lang="pt-br">
