@@ -1,0 +1,47 @@
+session_start() e $_session
+
+empty
+
+isset
+
+location:direção - envia usuario para o navegador
+
+$_get
+
+header
+isset
+
+location:direção - envia usuario para o navegador
+
+$_get
+
+header
+<?php
+
+$dsn = "mysql:host=musicstatus;dbname=musicstatus";
+$username = "musicstatus";
+$password = "amd123";
+$pdo = new PDO($dsn, $username, $password);
+
+$email = $_POST["email_usuario"]; 
+$username = $_POST["nome_usuario"];
+$password = password_hash($_POST["senha_usuario"], PASSWORD_DEFAULT);
+
+$stmt = $pdo->prepare("INSERT INTO alunos (nome, email, idade) VALUES (:nome, :email, :idade)");
+$stmt->bindParam(':nome_usuario', $username);
+$stmt->bindParam(':email_usuario', $email);
+$stmt->bindParam(':senha_usuario', $password);
+$stmt->execute();
+
+$stmt = $pdo->query("SELECT * FROM usuario");
+while ($usuario = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo $usuario['nome_usuario'] . " - " . $usuario['email_usuario'] . "<br>";
+    
+    if query(error) {
+        echo "Erro ao criar usuário";
+    } else {
+        echo "Usuário criado com sucesso!";
+    }
+}
+
+?>
